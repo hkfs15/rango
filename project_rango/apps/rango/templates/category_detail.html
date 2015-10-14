@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if category %}
+ {{category_name}}
+
+{% if user.is_authenticated %}
+ {# <a href="/rango/category/{{category.slug}}/add_page/">Add a new page</a></br> #}
+ <a href="{% url 'rango:rango_add_page' category.slug %}">Add a new page</a></br>
+{% endif %}
+
+ {% if pages %}
+    <ul>
+        {% for p in pages %}
+            <li>{{p.title}}</li>
+        {%endfor%}
+    </ul>
+ {% endif%}
+{% endif %}
+{% endblock %}

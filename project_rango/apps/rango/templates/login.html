@@ -1,0 +1,10 @@
+<form id="login_form" role="form" action="{% url 'rango:rango_login' %}" method="post">
+{% csrf_token %}
+<div class="form-group">
+  <input type="text" placeholder="Username" class="form-control" required autofocus="" name="username">
+</div>
+<div class="form-group">
+  <input type="password" placeholder="Password" class="form-control" name="password">
+</div>
+<button type="submit" class="btn btn-success">Sign in</button>
+</form>

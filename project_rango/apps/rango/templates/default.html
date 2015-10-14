@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+{% block content %}
+
+<div class="col col-md-6">
+<h4>TOP 5 Categories</h4>
+{% if category_list %}
+    <ul class="list-group">
+    {% for c in category_list %}
+        <li class="list-group-item"><a href="category/{{c.slug}}">{{c.name}}</a></li>
+        {# <li><a href="{% url 'rango:category_detail' c.slug %}">{{c.name}}</a></li> #}
+    {% endfor %}
+    </ul>
+{% else %}
+    No category yet.
+{% endif %}
+</div>
+
+<div class="col col-md-6">
+<h4>TOP 5 Viewed Pages</h4>
+{% if page_top_five %}
+    <ul class="list-group">
+    {% for p in page_top_five %}
+        <li class="list-group-item"><a href="{{p.url}}">{{p.title}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    No top pages.<br/>
+{% endif %}
+</div>
+
+{% endblock %}

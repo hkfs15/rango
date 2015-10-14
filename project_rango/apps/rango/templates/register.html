@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load bootstrap_toolkit %}
+
+{% block content %}
+
+    {% if registered %}
+        <h1>Registered successful</h1>
+    {% else %}
+
+        <form id="register_form" method="post" action="{% url 'rango:rango_register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ userform|as_bootstrap }}
+        {{ userprofileform|as_bootstrap }}
+        
+        <input type="submit" name="submit" class="btn btn-default" value="Register">
+    </form>
+
+    {% endif %}
+{% endblock content %}
